@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx
+    build:
+      dockerfile: nginx/Dockerfile
+      context: ./
+    restart: always
+    ports:
+      - '3000:3000'
+      - '4000:4000'
+  server:
+    container_name: node
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    restart: always
+    ports:
+      - '2000:2000'
