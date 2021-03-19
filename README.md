@@ -23,8 +23,8 @@ Uruchomienie projektu
 Zakończenie projektu
 > docker stack rm ms
 
---------------------------------------------------------
 
+<h2>Przydatne komendy</h2>
 
 > docker service ls
 
@@ -33,9 +33,10 @@ Zakończenie projektu
 > docker stack ps ms
 
 
+<h2>Linki</h2>
 
 Rabbitmq:
-http://localhost:4000/;
+http://localhost:4000/
 
 Nginx:
-http://localhost:3000/;
+http://localhost:3000/
