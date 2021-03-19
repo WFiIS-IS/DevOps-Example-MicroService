@@ -1,0 +1,37 @@
+version: '3.5'
+services:
+  nginx:
+    image: ms_nginx
+    ports:
+      - '3000:8000'
+      # - '4000:4000'
+    # networks:
+    #   - backend
+
+  reciever:
+    image: ms_reciever
+    deploy:
+      mode: replicated
+      replicas: 3
+  
+  sender:
+    image: ms_sender
+    deploy:
+      mode: replicated
+      replicas: 1
+      # ingress: true
+      # endpoint_mode: dnsrr
+    # ports:
+    #   - '2000:2000'
+    # networks:
+    #   - backend
+    # environment:
+    #   NODE_PORT: '200{{.Task.Slot}}'
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - '4000:15672'
+# networks:
+#   backend:
+#     # name: ms_network

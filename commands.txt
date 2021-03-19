@@ -1,0 +1,6 @@
+docker swarm init
+docker service ls
+docker service logs -f SERVICE_ID
+docker stack ps NAME
+docker stack rm NAME
+docker stack deploy --compose-file docker-stack.yml NAME

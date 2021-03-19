@@ -5,15 +5,31 @@ services:
     build:
       dockerfile: nginx/Dockerfile
       context: ./
-    restart: always
-    ports:
-      - '3000:3000'
-      - '4000:4000'
-  server:
-    container_name: node
+    image: ms_nginx
+    # restart: always
+    # links:
+    #   - node_server
+    # ports:
+    #   - '8000:8000'
+      # - '4000:4000'
+  reciever:
+    container_name: ms_reciever
     build:
       dockerfile: Dockerfile
-      context: ./backend
-    restart: always
-    ports:
-      - '2000:2000'
+      context: ./backend/Reciever/
+    image: ms_reciever
+  
+  sender:
+    container_name: ms_sender
+    build:
+      dockerfile: Dockerfile
+      context: ./backend/Sender/
+    image: ms_sender
+    # restart: always
+    # deploy:
+    #   mode: replicated
+    #   replicas: 3
+    # ports:
+    #   - '2000:2000'
+
+
